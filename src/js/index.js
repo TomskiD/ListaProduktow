@@ -67,6 +67,9 @@ document.getElementById('product-list').addEventListener('click', (e) => {
   // Remove product from store
   Store.removeProduct(e.target.parentElement.previousElementSibling.textContent);
 });
+document.getElementById('print-button').addEventListener('click', () => {
+  printDiv('pdf', 'title');
+});
 export default {
   mdb,
 };
