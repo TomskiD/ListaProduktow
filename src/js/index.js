@@ -41,7 +41,7 @@ class UI {
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
 }
-
+document.addEventListener('DOMContentLoaded', UI.displayProduct);
 export default {
   mdb,
 };
