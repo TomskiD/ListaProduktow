@@ -42,6 +42,25 @@ class UI {
   }
 }
 document.addEventListener('DOMContentLoaded', UI.displayProduct);
+document.getElementById('product-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Get forms values
+  const nameProduct = document.getElementById('product').value;
+  const measureProduct = document.getElementById('measure').value;
+  const categoryProduct = document.getElementById('filter-category').value;
+  // Validation
+  if (nameProduct === '' || measureProduct === '' || categoryProduct === '') {
+    UI.showAlert('Proszę uzupełnić wszystkie pola', 'danger');
+  } else {
+    // Initiate product
+    const product = new Product(nameProduct, measureProduct, categoryProduct);
+    UI.addProductToList(product);
+    // Add a book to store
+    Store.addProduct(product);
+    // Show success message
+    UI.showAlert('Produkt został dodany', 'success');
+  }
+});
 export default {
   mdb,
 };
