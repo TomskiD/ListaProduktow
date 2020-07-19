@@ -61,6 +61,12 @@ document.getElementById('product-form').addEventListener('submit', (e) => {
     UI.showAlert('Produkt został dodany', 'success');
   }
 });
+document.getElementById('product-list').addEventListener('click', (e) => {
+  // Remove product from UI
+  UI.deleteProduct(e.target);
+  // Remove product from store
+  Store.removeProduct(e.target.parentElement.previousElementSibling.textContent);
+});
 export default {
   mdb,
 };
