@@ -41,7 +41,9 @@ class UI {
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
 }
+
 document.addEventListener('DOMContentLoaded', UI.displayProduct);
+
 document.getElementById('product-form').addEventListener('submit', (e) => {
   e.preventDefault();
   // Get forms values
@@ -61,15 +63,18 @@ document.getElementById('product-form').addEventListener('submit', (e) => {
     UI.showAlert('Produkt został dodany', 'success');
   }
 });
+
 document.getElementById('product-list').addEventListener('click', (e) => {
   // Remove product from UI
   UI.deleteProduct(e.target);
   // Remove product from store
   Store.removeProduct(e.target.parentElement.previousElementSibling.textContent);
 });
+
 document.getElementById('print-button').addEventListener('click', () => {
   printDiv('pdf', 'title');
 });
+
 export default {
   mdb,
 };
